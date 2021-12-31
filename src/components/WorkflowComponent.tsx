@@ -9,102 +9,6 @@ export interface WorkflowComponentProps {
     store: Store;
 }
 
-
-Graph.registerNode(
-    'event',
-    {
-        inherit: 'circle',
-        attrs: {
-            body: {
-                strokeWidth: 2,
-                stroke: '#5F95FF',
-                fill: '#FFF',
-            },
-        },
-    },
-    true,
-)
-
-Graph.registerNode(
-    'activity',
-    {
-        inherit: 'rect',
-        markup: [
-            {
-                tagName: 'rect',
-                selector: 'body',
-            },
-            {
-                tagName: 'image',
-                selector: 'img',
-            },
-            {
-                tagName: 'text',
-                selector: 'label',
-            },
-        ],
-        attrs: {
-            body: {
-                rx: 6,
-                ry: 6,
-                stroke: '#5F95FF',
-                fill: '#EFF4FF',
-                strokeWidth: 1,
-            },
-            img: {
-                x: 6,
-                y: 6,
-                width: 16,
-                height: 16,
-                'xlink:href':
-                    'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*pwLpRr7QPGwAAAAAAAAAAAAAARQnAQ',
-            },
-            label: {
-                fontSize: 12,
-                fill: '#262626',
-            },
-        },
-    },
-    true,
-)
-
-Graph.registerNode(
-    'gateway',
-    {
-        inherit: 'polygon',
-        attrs: {
-            body: {
-                refPoints: '0,10 10,0 20,10 10,20',
-                strokeWidth: 2,
-                stroke: '#5F95FF',
-                fill: '#EFF4FF',
-            },
-            label: {
-                text: '+',
-                fontSize: 40,
-                fill: '#5F95FF',
-            },
-        },
-    },
-    true,
-)
-
-Graph.registerEdge(
-    'bpmn-edge',
-    {
-        inherit: 'edge',
-        attrs: {
-            line: {
-                stroke: '#A2B1C3',
-                strokeWidth: 2,
-            },
-        },
-    },
-    true,
-)
-
-
-
 export function WorkflowComponent(props: WorkflowComponentProps) {
     console.log(props);
     const graphRef = useRef<any>();
@@ -599,6 +503,350 @@ export function WorkflowComponent(props: WorkflowComponentProps) {
         )
         stencil.load(imageNodes, 'group2')
         // #endregion
+
+        // #region 序列化/反序列化
+        graph.fromJSON({
+            "cells": [
+                {
+                    "position": {
+                        "x": 410,
+                        "y": 120
+                    },
+                    "size": {
+                        "width": 66,
+                        "height": 36
+                    },
+                    "attrs": {
+                        "text": {
+                            "text": "开始"
+                        },
+                        "body": {
+                            "rx": 20,
+                            "ry": 26
+                        }
+                    },
+                    "shape": "custom-rect",
+                    "ports": {
+                        "groups": {
+                            "top": {
+                                "position": "top",
+                                "attrs": {
+                                    "circle": {
+                                        "r": 4,
+                                        "magnet": true,
+                                        "stroke": "#5F95FF",
+                                        "strokeWidth": 1,
+                                        "fill": "#fff",
+                                        "style": {
+                                            "visibility": "hidden"
+                                        }
+                                    }
+                                }
+                            },
+                            "right": {
+                                "position": "right",
+                                "attrs": {
+                                    "circle": {
+                                        "r": 4,
+                                        "magnet": true,
+                                        "stroke": "#5F95FF",
+                                        "strokeWidth": 1,
+                                        "fill": "#fff",
+                                        "style": {
+                                            "visibility": "hidden"
+                                        }
+                                    }
+                                }
+                            },
+                            "bottom": {
+                                "position": "bottom",
+                                "attrs": {
+                                    "circle": {
+                                        "r": 4,
+                                        "magnet": true,
+                                        "stroke": "#5F95FF",
+                                        "strokeWidth": 1,
+                                        "fill": "#fff",
+                                        "style": {
+                                            "visibility": "hidden"
+                                        }
+                                    }
+                                }
+                            },
+                            "left": {
+                                "position": "left",
+                                "attrs": {
+                                    "circle": {
+                                        "r": 4,
+                                        "magnet": true,
+                                        "stroke": "#5F95FF",
+                                        "strokeWidth": 1,
+                                        "fill": "#fff",
+                                        "style": {
+                                            "visibility": "hidden"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "items": [
+                            {
+                                "group": "top",
+                                "id": "19469c2c-11ff-4935-8903-8ae7ca42d4a1"
+                            },
+                            {
+                                "group": "right",
+                                "id": "66434f9b-0f15-42d5-8c0b-1b0d50ae52d6"
+                            },
+                            {
+                                "group": "bottom",
+                                "id": "9db27bb0-e39e-4630-8750-8fb1089d8b49"
+                            },
+                            {
+                                "group": "left",
+                                "id": "6feb4ee8-5221-45bc-924a-2d08b23f20c7"
+                            }
+                        ]
+                    },
+                    "id": "328a52ee-acc4-4f78-88f6-6a56eb9fa991",
+                    "zIndex": 1
+                },
+                {
+                    "position": {
+                        "x": 290,
+                        "y": 240
+                    },
+                    "size": {
+                        "width": 66,
+                        "height": 36
+                    },
+                    "attrs": {
+                        "text": {
+                            "text": "可选过程"
+                        },
+                        "body": {
+                            "rx": 6,
+                            "ry": 6
+                        }
+                    },
+                    "shape": "custom-rect",
+                    "ports": {
+                        "groups": {
+                            "top": {
+                                "position": "top",
+                                "attrs": {
+                                    "circle": {
+                                        "r": 4,
+                                        "magnet": true,
+                                        "stroke": "#5F95FF",
+                                        "strokeWidth": 1,
+                                        "fill": "#fff",
+                                        "style": {
+                                            "visibility": "hidden"
+                                        }
+                                    }
+                                }
+                            },
+                            "right": {
+                                "position": "right",
+                                "attrs": {
+                                    "circle": {
+                                        "r": 4,
+                                        "magnet": true,
+                                        "stroke": "#5F95FF",
+                                        "strokeWidth": 1,
+                                        "fill": "#fff",
+                                        "style": {
+                                            "visibility": "hidden"
+                                        }
+                                    }
+                                }
+                            },
+                            "bottom": {
+                                "position": "bottom",
+                                "attrs": {
+                                    "circle": {
+                                        "r": 4,
+                                        "magnet": true,
+                                        "stroke": "#5F95FF",
+                                        "strokeWidth": 1,
+                                        "fill": "#fff",
+                                        "style": {
+                                            "visibility": "hidden"
+                                        }
+                                    }
+                                }
+                            },
+                            "left": {
+                                "position": "left",
+                                "attrs": {
+                                    "circle": {
+                                        "r": 4,
+                                        "magnet": true,
+                                        "stroke": "#5F95FF",
+                                        "strokeWidth": 1,
+                                        "fill": "#fff",
+                                        "style": {
+                                            "visibility": "hidden"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "items": [
+                            {
+                                "group": "top",
+                                "id": "105a804b-5bcd-438c-b694-3acc621e9000"
+                            },
+                            {
+                                "group": "right",
+                                "id": "14edd428-5b3b-414b-acd4-5dd43d274a3c"
+                            },
+                            {
+                                "group": "bottom",
+                                "id": "ef9c6b45-8ffc-45c9-9434-ae4e7b58a671"
+                            },
+                            {
+                                "group": "left",
+                                "id": "c8965df1-59bb-4af3-a58c-9408b41a2e7a"
+                            }
+                        ]
+                    },
+                    "id": "c032ba51-a7eb-4257-be4c-b2159bfa4cf5",
+                    "zIndex": 2
+                },
+                {
+                    "position": {
+                        "x": 550,
+                        "y": 240
+                    },
+                    "size": {
+                        "width": 66,
+                        "height": 36
+                    },
+                    "attrs": {
+                        "text": {
+                            "text": "数据"
+                        },
+                        "body": {
+                            "refPoints": "10,0 40,0 30,20 0,20"
+                        }
+                    },
+                    "shape": "custom-polygon",
+                    "ports": {
+                        "groups": {
+                            "top": {
+                                "position": "top",
+                                "attrs": {
+                                    "circle": {
+                                        "r": 4,
+                                        "magnet": true,
+                                        "stroke": "#5F95FF",
+                                        "strokeWidth": 1,
+                                        "fill": "#fff",
+                                        "style": {
+                                            "visibility": "hidden"
+                                        }
+                                    }
+                                }
+                            },
+                            "right": {
+                                "position": "right",
+                                "attrs": {
+                                    "circle": {
+                                        "r": 4,
+                                        "magnet": true,
+                                        "stroke": "#5F95FF",
+                                        "strokeWidth": 1,
+                                        "fill": "#fff",
+                                        "style": {
+                                            "visibility": "hidden"
+                                        }
+                                    }
+                                }
+                            },
+                            "bottom": {
+                                "position": "bottom",
+                                "attrs": {
+                                    "circle": {
+                                        "r": 4,
+                                        "magnet": true,
+                                        "stroke": "#5F95FF",
+                                        "strokeWidth": 1,
+                                        "fill": "#fff",
+                                        "style": {
+                                            "visibility": "hidden"
+                                        }
+                                    }
+                                }
+                            },
+                            "left": {
+                                "position": "left",
+                                "attrs": {
+                                    "circle": {
+                                        "r": 4,
+                                        "magnet": true,
+                                        "stroke": "#5F95FF",
+                                        "strokeWidth": 1,
+                                        "fill": "#fff",
+                                        "style": {
+                                            "visibility": "hidden"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "items": [
+                            {
+                                "group": "top",
+                                "id": "c42d82c0-3b9a-44b1-886c-c4266c630897"
+                            },
+                            {
+                                "group": "bottom",
+                                "id": "67064c25-92e7-4c6b-be89-72dc6683e22d"
+                            }
+                        ]
+                    },
+                    "id": "34a71a9e-cacd-42f3-9395-34115de1017c",
+                    "zIndex": 3
+                },
+                {
+                    "shape": "edge",
+                    "attrs": {
+                        "line": {
+                            "stroke": "#A2B1C3",
+                            "targetMarker": {
+                                "name": "block",
+                                "width": 12,
+                                "height": 8
+                            }
+                        }
+                    },
+                    "id": "e3b88c99-5abd-4617-8156-82b876c7f4ad",
+                    "zIndex": 0,
+                    "source": {
+                        "cell": "328a52ee-acc4-4f78-88f6-6a56eb9fa991",
+                        "port": "9db27bb0-e39e-4630-8750-8fb1089d8b49"
+                    },
+                    "target": {
+                        "cell": "c032ba51-a7eb-4257-be4c-b2159bfa4cf5",
+                        "port": "105a804b-5bcd-438c-b694-3acc621e9000"
+                    }
+                }
+            ]
+        });
+
+
+        const parse = () => {
+            const data = JSON.stringify(graph.toJSON(), null, 2);
+            console.dir(data);
+        }
+
+        parse()
+
+        graph.on('cell:change:*', parse);
+        // #endregion
+
 
     }, []);
 
