@@ -1,0 +1,12 @@
+@import "../../node_modules/antd/dist/antd";
+
+.mxcn-resize-wrapper {
+    min-height: 500px;
+    height: 100%;
+    display: flex;
+    width: 100%;
+
+    .mxcn-resize {
+        flex: 1;
+    }
+}
