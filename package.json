@@ -14,7 +14,7 @@
   "packagePath": "com.mendix.widget.custom",
   "scripts": {
     "x": "npm i --registry=https://registry.npmmirror.com",
-    "testProject": "cmd /c git clone https://gitee.com/engalar/mendix-testproject-800.git --depth=1 ./tests/testProject && rd /s /q  .\\tests\\testProject\\.git",
+    "testProject": "cmd /c git clone https://gitee.com/engalar/mendix-testproject-960.git --depth=1 ./tests/testProject && rd /s /q  .\\tests\\testProject\\.git",
     "start": "concurrently \"pluggable-widgets-tools start:server --open\" \"npm:dev\"",
     "dev": "pluggable-widgets-tools start:js",
     "build": "pluggable-widgets-tools build:js",
