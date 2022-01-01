@@ -1,9 +1,8 @@
-import { createElement, useCallback, useRef, useState } from "react";
+import { createElement, useEffect, useRef, useState } from "react";
 import { Graph, Shape, Addon } from '@antv/x6'
 
 import { Store } from "../store";
 import { useSize, useUpdateEffect } from "ahooks";
-import DivContainer from "./DivContainer";
 
 export interface WorkflowComponentProps {
     store: Store;
@@ -16,7 +15,7 @@ export function WorkflowComponent(props: WorkflowComponentProps) {
     const size = useSize(wrapperRef);
     const [graphInstance, setGraphInstance] = useState<Graph>();
 
-    const ready = useCallback(() => {
+    useEffect(() => {
         const graph = new Graph({
             container: graphRef.current!,
             grid: true,
@@ -856,5 +855,7 @@ export function WorkflowComponent(props: WorkflowComponentProps) {
         }
     }, [size, graphInstance]);
 
-    return <DivContainer ready={ready} containerRef={graphRef} wrapperRef={wrapperRef}></DivContainer>;
+    return <div className="mxcn-resize-wrapper" ref={wrapperRef}>
+      <div className="mxcn-resize" ref={graphRef}></div>
+    </div>;
 }
